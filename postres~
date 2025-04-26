@@ -1,0 +1,298 @@
+<!DOCTYPE html> 
+<html> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Postres / Dessert Menu</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        .VIpgJd-ZVi9od-l4eHX-hSRGPd, .VIpgJd-ZVi9od-l4eHX-hSRGPd:link, .VIpgJd-ZVi9od-l4eHX-hSRGPd:visited, .VIpgJd-ZVi9od-l4eHX-hSRGPd:hover, .VIpgJd-ZVi9od-l4eHX-hSRGPd:active {
+  font-size: 12px;
+  font-weight: bold;
+  color: #444;
+  text-decoration:
+none;
+  display: none;
+}
+
+        .menu-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .menu-title {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+
+        .dessert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Default: 2 columns */
+            gap: 1.5em;
+        }
+
+        .dessert-item {
+            text-align: center;
+        }
+
+        .image-container {
+            width: 150px;
+            height: 150px;
+            background-color: #eee;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8em;
+            color: #888;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 0 auto 0.5em;
+        }
+
+        .product-price-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 0.2em;
+        }
+
+        .product-name {
+            margin-right: 1em;
+        }
+
+        .product-price {
+            white-space: nowrap;
+        }
+
+        .dessert-description {
+            font-size: 0.9em;
+            color: #555;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        /* Media Queries for Responsiveness */
+
+        /* For screens smaller than 768px (e.g., tablets) */
+        @media (max-width: 768px) {
+            .dessert-grid {
+                grid-template-columns: 1fr; /* Change to 1 column */
+            }
+        }
+
+        /* You can add more media queries for even smaller screens (phones) if needed */
+        @media (max-width: 480px) {
+            .image-container {
+                width: 100%; /* Make image container full width on small screens */
+                height: auto; /* Allow height to adjust proportionally */
+            }
+        }
+    </style>
+</head>
+
+<body>
+ <p>
+       
+    </p>
+
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+
+    <script type="text/javascript" 
+            src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+    </script>
+    <section class="menu-section">
+        <h2 class="menu-title">Postres / Desserts</h2>
+
+        <div class="dessert-grid">
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Mont Blanc</span>
+                    <span class="product-price">8.00 €</span>
+                </div>
+                <p class="dessert-description">Helado de limón</p>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Fantasía de vainilla</span>
+                    <span class="product-price">9,00 €</span>
+                </div>
+                <p class="dessert-description">2 bolas de vainilla y nata</p>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Banana Split</span>
+                    <span class="product-price">10,00 €</span>
+                </div>
+                <p class="dessert-description">Platano, helado de vainilla y fresa con chocolate con nata</p>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Creppe</span>
+                    <span class="product-price">9,00 €</span>
+                </div>
+                <p class="dessert-description">Creppe con vainilla, chocolate, fresa, nata y sirope de chocolate.</p>
+            </div>
+
+             <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Nueces con nata y helado</span>
+                    <span class="product-price">9,00 €</span>
+                </div>
+                <p class="dessert-description">Nata, nueces y helado.</p>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Fantasía pirata</span>
+                    <span class="product-price">7,00 €</span>
+                </div>
+                <p class="dessert-description">Kiwy, helado variado y nata</p>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Coctail de fruta</span>
+                    <span class="product-price">8,00 €</span>
+                </div>
+                <p class="dessert-description">Fruta variada del tiempo.</p>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Bohemia</span>
+                    <span class="product-price">8,00 €</span>
+                </div>
+                <p class="dessert-description">Helado, vainilla, fresa, chocolate con nata con bombón helado.</p>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Macedonia</span>
+                    <span class="product-price">6,00 €</span>
+                </div>
+                <p class="dessert-description">Macedonia, vainilla y nata</p>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Tarta al Whisky</span>
+                    <span class="product-price">5,00 €</span>
+                </div>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Tarta Comtessa</span>
+                    <span class="product-price">5.00 €</span>
+                </div>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Limón Helado o Coco Helado</span>
+                    <span class="product-price">3,75 €</span>
+                </div>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Gofre solo</span>
+                    <span class="product-price">4,00 €</span>
+                </div>
+                <p class="dessert-description">Gofre o con chocolate o con nata</p>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Con nata y chocolate</span>
+                    <span class="product-price">4,50 €</span>
+                </div>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Crema Catalana casera</span>
+                    <span class="product-price">3,00 €</span>
+                </div>
+                <p class="dessert-description">Fruta del tiempo<br>Según Fruta de Temporada</p>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Flan casero de huevo</span>
+                    <span class="product-price">3,50 €</span>
+                </div>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Flan casero con nata</span>
+                    <span class="product-price">7.00 €</span>
+                </div>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Fresas con nata</span>
+                    <span class="product-price">6,00 €</span>
+                </div>
+                <p class="dessert-description">Fresas con nata</p>
+            </div>
+
+            <div class="dessert-item">
+                <div class="image-container">Image</div>
+                <div class="product-price-container">
+                    <span class="product-name">Batidos</span>
+                    <span class="product-price">8,00 €</span>
+                </div>
+                <p class="dessert-description">Fresa, chocolate, vainilla, etc...</p>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
