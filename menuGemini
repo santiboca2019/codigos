@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Menú del Restaurante</title>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/linuxguist/google-translate@main/google-translate-xxviii.css">
+    <style>
+        body 
+@font-face {
+        font-family: "CloisterBlackLight-axjg";
+        src: url("CloisterBlackLight-axjg.ttf");
+    }        
+        {
+            font-family: sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+    
+    h1{font-family: "CloisterBlackLight-axjg";
+    text-transform: lowercase;
+    font-size: 9vw;
+    line-height: 9vw;
+    text-transform: lowercase;
+    }
+        .menu-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: none;
+            margin: 0;
+            margin-bottom: 20px;
+        }
+    
+        h2 {
+            font-family: "CloisterBlackLight-axjg";
+        font-size: 60px;
+        color: #000;
+        text-transform: lowercase;
+        }
+    
+        .menu-image-placeholder {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        
+.menu-image-placeholder-entrante {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 10px;
+           background-image: url('images/img149.jpg'); 
+           background-size: cover;
+        }        
+        
+    
+        .menu-category {
+            margin-top: 20px;
+        }
+        
+         .menu-items li.price-header span:last-child {
+            display: flex;
+            justify-content: space-between; /* Asegura la separación entre "1/2" y "Completa" */
+            width: 80px; /* Ancho para alinear con la columna de precios */
+            text-align: right; /* Alinea el contenido a la derecha del contenedor */
+        }
+    
+        .menu-items li.price-header span span {
+            display: inline-block; /* Permite controlar el espaciado */
+            width: 40px; /* Ancho aproximado para cada etiqueta */
+            text-align: center; /* Centra "1/2" y "Completa" en su espacio */
+        }
+    
+        .menu-items {
+            list-style: none;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+    
+        .menu-items li {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            padding-top: 15px; /* Añadimos un espacio superior a los items */
+            margin-top: 5px; /* Reducimos ligeramente el margen superior */
+        }
+    
+        .menu-items li:last-child {
+            border-bottom: none;
+        }
+    
+        .menu-items li span:first-child {
+            flex-grow: 1;
+            display: block;
+        }
+    
+        .menu-items li span:last-child {
+            font-weight: bold;
+            white-space: nowrap;
+            text-align: right; /* Alineamos los precios a la derecha */
+            width: 80px; /* Damos un ancho para que se vea mejor la alineación */
+        }
+    
+        .menu-items li.price-header {
+            font-size: 0.9em;
+            color: #555;
+            font-weight: bold;
+            border-bottom: 2px solid #aaa;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        }
+    
+        .menu-items li.price-header span:first-child {
+            flex-grow: 1;
+        }
+    
+        .menu-items li.price-header span:last-child {
+            display: flex;
+            justify-content: flex-end; /* Alineamos el contenido del header a la derecha */
+            width: 80px; /* Igualamos el ancho de la columna de precios */
+        }
+    
+        .menu-items li.price-header span span {
+            margin-left: 10px; /* Espacio entre 1/2 y Completa */
+        }
+    
+        .nota-media-racion, .nota-acompanamiento, .nota-iva, .nota-minimo {
+            font-size: 0.8em;
+            color: #777;
+            text-align: left;
+            margin-top: 5px;
+            margin-left: 20px;
+        }
+    
+        .tapas-list li span:first-child {
+            display: block;
+            margin-bottom: 5px;
+        }
+    
+        .platos-combinados-nota, .guarnicion-nota {
+            font-size: 0.8em;
+            color: #777;
+            margin-top: 5px;
+            text-align: left;
+            margin-left: 20px;
+        }
+    
+        .precio-persona {
+            font-size: 0.8em;
+            color: #777;
+            font-style: italic;
+            text-align: right;
+        }
+    
+        @media (min-width: 768px) {
+            .menu-items {
+                grid-template-columns: 1fr 1fr;
+                padding: 0 50px;
+            }
+    
+            .menu-items li.price-header span:last-child {
+                justify-content: space-between; /* Volvemos a space-between en dos columnas */
+                width: 150px; /* Ajustamos el ancho para dos columnas */
+            }
+    
+            .menu-items li span:last-child {
+                text-align: right;
+                width: 150px; /* Ajustamos el ancho para dos columnas */
+            }
+    
+        @media (min-width: 1200px) {
+            .menu-items {
+                grid-template-columns: repeat(3, 1fr);
+                padding: 0 100px;
+            }
+    
+            .menu-items li.price-header span:last-child {
+                justify-content: space-around; /* Ajustamos para tres columnas */
+                width: 120px; /* Ajustamos el ancho para tres columnas */
+            }
+    
+            .menu-items li span:last-child {
+                text-align: right;
+                width: 120px; /* Ajustamos el ancho para tres columnas */
+            }
+           
+            .vino-section {
+                margin-bottom: 20px;
+            }
+            .vino-table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            .vino-table th, .vino-table td {
+                border-bottom: 2px solid #ddd;
+                border-bottom-style: dashed;
+                padding: 8px;
+                text-align: left;
+            }
+            .vino-table th {
+                background-color: transparent;
+            }
+            .vino-table .precio {
+                text-align: right;
+            }
+          .piz-section {
+                margin-bottom: 20px;
+                 background-image: url('images/pizzas.png');
+                 background-size: cover;
+                 width: 100%;
+                 height:fit-content;}
+            .piz-table {
+                width: 100%;
+                border-collapse: collapse;
+                 }
+            .piz-table th, .piz-table td {
+                border-bottom: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            .piz-table th {
+                background-color: #f0f0f0;
+            }
+            .piz-table .precio {
+                text-align: right;
+            }  
+    </style></head><body>
+    <section class="menu-section">
+        </section><h2>ENTRANTES Y RACIONES</h2>
+        <div class="menu-image-placeholder-entrante"></div>
+        <ul class="menu-items">
+            <li><span>01. Calamares a la Romana</span>
+                    <p class="price-header">
+                        </p><div style="float: right;"><b>1/2  Completa</b></div>
+                        
+                        <div>10,00 16,00</div>
+            </li>
+            <li><span>02. Bacalao Frito   </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>03. Chipirones     </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>04. Cazón en Adobo     </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>05. Boquerones Fritos    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>06. Boquerones en Vinagre    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>07. Sardinas a la Plancha    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>08. Jibia (Sepia)    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>09. Mejillon es al Vapor    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>10. Calamares Plancha    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>11. Tortilla de Camarones    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>12. Patatas Bravas    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>13. Carne con Tomate    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>14. Jamón Serrano de Bodega    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>15. Champiñones    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>16. Lomo      </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>17. Queso Media Curación    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>18. Croquetas    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>19. Pincho Moruno    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>20. Gambas a la Plancha    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>21. Gambas al “Pil - Pil“    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>22. Almejas a la Marinera    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>23. Mejillones a la Marinera    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+            <li><span>24. Solomillo de Cerdo al Ajo    </span>
+                <p class="price-header">
+                    </p><div style="float: right;"><b>1/2  Completa</b></div>
+                    
+                    <div>10,00 16,00</div>
+            </li>
+        </ul>
+        <p class="nota-media-racion">Nota: El primer precio corresponde a la 1/2 RACIÓN y el segundo a la RACIÓN completa.</p>
+    
+
+    <section class="menu-section menu-category">
+        </section><h2>RACIONES DE TAPAS</h2>
+        <div class="menu-image-placeholder">       </div>
+        <ul class="menu-items tapas-list">
+            <li><span>1. Carne con Tomate, Pincho Moruno, Lomo,<br>Croquetas, Chorizo y Finger de Pollo</span><span>16,00</span></li>
+            <li><span>2. Sardinas, Mejillones, Gambas, Mero,<br>Merluza y Atún (Según pescado del día)</span><span>16,00</span></li>
+            <li><span>3. Boquerones, Calamares, Bacalao,<br>Chipirones, Tortilla de Camarón y Cazón</span><span>16,00</span></li>
+        </ul>
+        <p class="nota-acompanamiento">*Todas acompañadas de Patatas, Lechuga y Tomate*</p>
+    
+
+    <section class="menu-section menu-category">
+        </section><h2>SANDWICHES</h2>
+        <div class="menu-image-placeholder">
+        </div>
+        <ul class="menu-items">
+            <li><span>01. Mixto</span><span>4,00</span></li>
+            <li><span>02. Vegetal</span><span>4,50</span></li>
+            <li><span>03. Atún</span><span>4,50</span></li>
+            <li><span>04. Bacon</span><span>4,50</span></li>
+            <li><span>05. Jamón</span><span>4,00</span></li>
+            <li><span>06. Queso</span><span>4,00</span></li>
+        </ul>
+        <p class="nota-iva">I.V.A. Incluido.</p>
+    
+
+    <section class="menu-section menu-category">
+        </section><h2>PLATOS COMBINADOS</h2>
+        <div class="menu-image-placeholder">
+        </div>
+        <ul class="menu-items">
+            <li><span>01. Hamburguesa con Queso y Cebolla<br><span class="platos-combinados-nota">Acompañado de Patatas, Lechuga y Tomate</span></span><span>8,00</span></li>
+            <li><span>02. Salchicha Curry con Patatas y Ensalada</span><span>9,00</span></li>
+            <li><span>03. Huevos Fritos, Bacon y Patatas</span><span>12,00</span></li>
+            <li><span>04. Lomo con Patatas y Huevo Frito</span><span>10,00</span></li>
+            <li><span>05. 1/4 Pollo con Patatas y Huevo Frito</span><span>10,00</span></li>
+            <li><span>06. Huevos Fritos con Patatas</span><span>5,00</span></li>
+            <li><span>07. Chuleta de Cerdo con Patatas y Huevo</span><span>10,00</span></li>
+            <li><span>08. Filete de Ternera con Patatas y Ensalda</span><span>14,00</span></li>
+            <li><span>09. Escalope de Cerdo con Patatas y Huevo</span><span>11,00</span></li>
+            <li><span>10. Tortilla Francesa con Patatas y Ensalada</span><span>7,00</span></li>
+            <li><span>11. Pinchito Moruno con Patatas y Ensalada</span><span>10,00</span></li>
+            <li><span>12. Croquetas con Patatas y Huevo</span><span>10,00</span></li>
+            <li><span>13. Pez espada con Patatas y Ensalada</span><span>13,00</span></li>
+            <li><span>14. Merluza con Patatas y Ensalada</span><span>12,00</span></li>
+            <li><span>15. Calamares a la Romana con Patatas</span><span>12,00</span></li>
+            <li><span>16. Lasaña</span><span>9,00</span></li>
+            <li><span>17. Tortilla de Gambas</span><span>14,00</span></li>
+            <li><span>18. Tortilla de Champiñones ó de Jamón</span><span>10,00</span></li>
+            <li><span>19. Tortilla de Patatas</span><span>10,00</span></li>
+            <li><span>20. Spaguetti Marinera</span><span>15,00</span></li>
+            <li><span>21. Macarrones</span><span>9,00</span></li>
+            <li><span>22. Spaguetti Bolognesa</span><span>9,00</span></li>
+            <li><span>23. Nuggets con Patatas</span><span>9,00</span></li>
+            <li><span>24. Ración de Patatas</span><span>5,50</span></li>
+            <li><span>25. Ración de Pan</span><span>1,50</span></li>
+        </ul>
+    
+
+    <section class="menu-section menu-category">
+        </section><h2>SOPAS</h2>
+        <div class="menu-image-placeholder">
+        </div>
+        <ul class="menu-items">
+            <li><span>01. Sopa de Marisco</span><span>8,00</span></li>
+            <li><span>02. Sopa de Tomate</span><span>6,00</span></li>
+            <li><span>03. Gazpacho Andaluz</span><span>6,00</span></li>
+            <li><span>04. Sopa de Pollo</span><span>7,00</span></li>
+            <li><span>05. Sopa de Ajo</span><span>6,00</span></li>
+            <li><span>06. Salmorejo</span><span>6,00</span></li>
+        </ul>
+    
+
+    <section class="menu-section menu-category">
+        </section><h2>ENSALADAS</h2>
+        <div class="menu-image-placeholder">
+        </div>
+        <ul class="menu-items">
+            <li><span>01. Ensalada Mixta de la Casa</span><span>13,00</span></li>
+            <li><span>02. Cóctel de Gambas</span><span>14,00</span></li>
+            <li><span>03. Ensalada Verde</span><span>8,00</span></li>
+            <li><span>04. Ensalada Tropical</span><span>16,00</span></li>
+            <li><span>05. Tomate Aliñado</span><span>9,00</span></li>
+            <li><span>06. Ensalada César</span><span>16,00</span></li>
+            <li><span>07. Hamburguesa Vegetal</span><span>12,00</span></li>
+            <li><span>08. Parrillada de Verduras</span><span>14,00</span></li>
+        </ul>
+    
+
+    <section class="menu-section menu-category">
+        </section><h2>PAELLAS Y ARROCES</h2>
+        <div class="menu-image-placeholder">
+        </div>
+        <p class="nota-minimo">Mínimo 2 Personas | Precio por Persona</p>
+        <ul class="menu-items">
+            <li><span>01. Paella Mixta</span><span class="precio-persona">15,00</span></li>
+            <li><span>02. Paella de Marisco</span><span class="precio-persona">16,00</span></li>
+            <li><span>03. Paella de Carne</span><span class="precio-persona">14,00</span></li>
+            <li><span>04. Paella de Verdura</span><span class="precio-persona">13,00</span></li>
+            <li><span>05. Arroz con Pollo</span><span class="precio-persona">15,00</span></li>
+            <li><span>06. Arroz Negro</span><span class="precio-persona">16,00</span></li>
+            <li><span>07. Arroz con Bogavante | Por encargo</span><span class="precio-persona">22,00</span></li>
+        </ul>
+    
+    <section class="menu-section menu-category">
+        </section><h2>PARRILLADA Y FRITURA</h2>
+        <div class="menu-image-placeholder">
+        </div>
+        <p class="guarnicion-nota">Guarnición de Verduras y Patatas</p>
+        <ul class="menu-items">
+            <li><span>01. Parrillada Variada de Pescado 1 Pers.</span><span>21,00</span></li>
+            <li><span>02. Parrillada Variada de Pescado 2 Pers</span><span>40,00</span></li>
+            <li><span>03. Fritura Variada de Pescado 1 Pers.</span><span>21,00</span></li>
+            <li><span>04. Fritura Variada de Pescado 2 Pers</span><span>40,00</span></li>
+        </ul>
+    
+
+    <section class="menu-section menu-category">
+        </section><h2>CARNES</h2>
+        <div class="menu-image-placeholder">
+        </div>
+        <p class="guarnicion-nota">Guarnición de Verduras y Patatas</p>
+        <ul class="menu-items">
+            <li><span>01. Solomillo de Ternera a la Pimienta</span><span>25,00</span></li>
+            <li><span>02. Solomillo de Ternera a la Brasa</span><span>23,00</span></li>
+            <li><span>03. Entrecote a la Pimienta</span><span>22,00</span></li>
+            <li><span>04. Entrecote a la Brasa</span><span>20,00</span></li>
+            <li><span>05. Entrecot de Angus</span><span>33,00</span></li>
+            <li><span>06. Chuletón de Ternera - Por encargo</span><span>S.P.M.</span></li>
+            <li><span>07. Chuletas de Cordero a la Brasa</span><span>20,00</span></li>
+            <li><span>08. Solomillo de Cerdo con Champiñones</span><span>17,00</span></li>
+            <li><span>09. Solomillo de Cerdo a la Crema</span><span>17,00</span></li>
+            <li><span>10. 1/2 Pollo Asado</span><span>12,00</span></li>
+            <li><span>11. Pechuga de Pollo al Curry con Arroz</span><span>17,00</span></li>
+            <li><span>12. Secreto Ibérico Confitado</span><span>14,00</span></li>
+            <li><span>13. Pechuga a la Plancha</span><span>14,00
+               </span></li></ul>
+    
+
+    <section class="menu-section menu-category">
+        </section><h2>MENÚ DIARIO</h2>
+        <div class="menu-image-placeholder">
+            </div>
+        <ul class="menu-items">
+            <li><span>01º . Ensalada, Sopa, Pasta o Pescado u otros<br>02º. Carne, Pescado o Pasta con guarnición<br>03º. Pan y Postre: Fruta, Helado, Flan o Café</span></li>
+        </ul>
+        <p class="nota-acompanamiento">Comida para Celiacos y Sin Gluten</p>
+    
+
+    <section class="menu-section menu-category">
+        </section><h2>PESCADOS ESPECIALES</h2>
+        <div class="menu-image-placeholder">
+        </div>
+        <p class="guarnicion-nota">Guarnición de Verduras y Patatas</p>
+        <ul class="menu-items">
+            <li><span>01. Zarzuela Mixta, Marisco y Pescado</span><span>30,00</span></li>
+            <li><span>02. Merluza a la Vasca</span><span>22,00</span></li>
+            <li><span>03. Rape a la Chef</span><span>25,00</span></li>
+            <li><span>04. Rape a la Marinera</span><span>30,00</span></li>
+            <li><span>05. Pulpo a la Brasa</span><span>25,00</span></li>
+        </ul>
+    
+
+    <section class="menu-section menu-category">
+        </section><h2>PESCADOS</h2>
+        <div class="menu-image-placeholder">
+        </div>
+        <p class="guarnicion-nota">Guarnición de Verduras y Patatas</p>
+        <ul class="menu-items">
+            <li><span>01. Lenguado a la Meunier</span><span>17,00</span></li>
+            <li><span>02. Dorada a la Espalda</span><span>17,00</span></li>
+            <li><span>03. Lubina a la Espalda</span><span>18,00</span></li>
+            <li><span>04. Pez Espada a la Plancha</span><span>16,00</span></li>
+            <li><span>05. Pez Espada a la Pimienta</span><span>18,00</span></li>
+            <li><span>06. Calamar al Aceite</span><span>20,00</span></li>
+            <li><span>07. Salmón a la Plancha</span><span>16,00</span></li>
+            <li><span>08. Rape Frito o a la Plancha</span><span>20,00</span></li>
+            <li><span>09. Merluza Frita o a la Plancha</span><span>20,00</span></li>
+        </ul>
+    
+    <section class="vino-section">
+        </section><h2>Tintos</h2>
+        <table class="vino-table">
+            <thead>
+                <tr>
+                    <th>Vino</th>
+                    <th>Origen</th>
+                    <th class="precio">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1. Martin Zurbano</td>
+                    <td>Rioja</td>
+                    <td class="precio">22,00</td>
+                </tr>
+                <tr>
+                    <td>2. Marqués de Cáceres</td>
+                    <td>Rioja</td>
+                    <td class="precio">20,00</td>
+                </tr>
+                <tr>
+                    <td>3. Torres Sangre de Toro</td>
+                    <td>Rioja</td>
+                    <td class="precio">17,00</td>
+                </tr>
+                <tr>
+                    <td>4. Carramimbre</td>
+                    <td>Ribera del Duero</td>
+                    <td class="precio">16,00</td>
+                </tr>
+                <tr>
+                    <td>5. HZ16</td>
+                    <td>Ribera del Duero - Marqués de la Concordia</td>
+                    <td class="precio">25,00</td>
+                </tr>
+                <tr>
+                    <td>6. Rioja de la Casa</td>
+                    <td><br>
+</td>
+                    <td class="precio">15,00</td>
+                </tr>
+                <tr>
+                    <td>7. Ribera de la Casa</td>
+                    <td><br>
+</td>
+                    <td class="precio">15,00</td>
+                </tr>
+                <tr>
+                    <td>8. De la Casa</td>
+                    <td><br>
+</td>
+                    <td class="precio">12,00</td>
+                </tr>
+                <tr>
+                    <td>9. De la Casa - 1/2 ltr.</td>
+                    <td><br>
+</td>
+                    <td class="precio">7,00</td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+    <section class="vino-section">
+        </section><h2>Blancos</h2>
+        <table class="vino-table">
+            <thead>
+                <tr>
+                    <th>Vino</th>
+                    <th>Origen</th>
+                    <th class="precio">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1. Marqués de Cáceres</td>
+                    <td><br>
+</td>
+                    <td class="precio">18,00</td>
+                </tr>
+                <tr>
+                    <td>2. Viña Laujar</td>
+                    <td>Vino Andaluz</td>
+                    <td class="precio">14,00</td>
+                </tr>
+                <tr>
+                    <td>3. Barbadillo</td>
+                    <td><br>
+</td>
+                    <td class="precio">18,00</td>
+                </tr>
+                <tr>
+                    <td>4. Torres Viña Sol</td>
+                    <td><br>
+</td>
+                    <td class="precio">18,00</td>
+                </tr>
+                <tr>
+                    <td>5. Blanco Pescador</td>
+                    <td><br>
+</td>
+                    <td class="precio">16,00</td>
+                </tr>
+                <tr>
+                    <td>6. Macabeo</td>
+                    <td><br>
+</td>
+                    <td class="precio">13,00</td>
+                </tr>
+                <tr>
+                    <td>7. Baron de Ley</td>
+                    <td>Marqués de la Concordia</td>
+                    <td class="precio">15,00</td>
+                </tr>
+                <tr>
+                    <td>8. Vega Reina</td>
+                    <td><br>
+</td>
+                    <td class="precio">18,00</td>
+                </tr>
+                <tr>
+                    <td>9. Frizzante</td>
+                    <td><br>
+</td>
+                    <td class="precio">18,00</td>
+                </tr>
+                <tr>
+                    <td>10. Rioja de la Casa</td>
+                    <td><br>
+</td>
+                    <td class="precio">15,00</td>
+                </tr>
+                <tr>
+                    <td>11. Rueda de la Casa</td>
+                    <td><br>
+</td>
+                    <td class="precio">15,00</td>
+                </tr>
+                <tr>
+                    <td>12. De la Casa</td>
+                    <td><br>
+</td>
+                    <td class="precio">12,00</td>
+                </tr>
+                <tr>
+                    <td>13. De la Casa - 1/2 Itr</td>
+                    <td><br>
+</td>
+                    <td class="precio">7,00</td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+    <section class="vino-section">
+        </section><h2>Semidulces</h2>
+        <table class="vino-table">
+            <thead>
+                <tr>
+                    <th>Vino</th>
+                    <th class="precio">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Diamante</td>
+                    <td class="precio">15,00</td>
+                </tr>
+                <tr>
+                    <td>Emparrado</td>
+                    <td class="precio">14,00</td>
+                </tr>
+                <tr>
+                    <td>Vino de la Casa</td>
+                    <td class="precio">12,00</td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+    <section class="vino-section">
+        </section><h2>Varios</h2>
+        <table class="vino-table">
+            <thead>
+                <tr>
+                    <th>Bebida</th>
+                    <th class="precio">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tinto de Verano 1 L.</td>
+                    <td class="precio">12,00</td>
+                </tr>
+                <tr>
+                    <td>Cerveza 1 L.</td>
+                    <td class="precio">10,00</td>
+                </tr>
+                <tr>
+                    <td>Sangria 1 L.</td>
+                    <td class="precio">14,00</td>
+                </tr>
+                <tr>
+                    <td>Sangria 1/2 L.</td>
+                    <td class="precio">7,00</td>
+                </tr>
+                <tr>
+                    <td>Sangria Copa</td>
+                    <td class="precio">3,50</td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+    <section class="vino-section">
+        </section><h2>Champagnes</h2>
+        <table class="vino-table">
+            <thead>
+                <tr>
+                    <th>Bebida</th>
+                    <th class="precio">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Codorniu</td>
+                    <td class="precio">20,00</td>
+                </tr>
+                <tr>
+                    <td>Benjamin</td>
+                    <td class="precio">4,50</td>
+                </tr>
+                <tr>
+                    <td>Cava</td>
+                    <td class="precio">16,00</td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+    <section class="vino-section">
+        </section><h2>Rosados</h2>
+        <table class="vino-table">
+            <thead>
+                <tr>
+                    <th>Vino</th>
+                    <th class="precio">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Marqués de Cáceres</td>
+                    <td class="precio">16,00</td>
+                </tr>
+                <tr>
+                    <td>Peñascal</td>
+                    <td class="precio">15,00</td>
+                </tr>
+                <tr>
+                    <td>Lambrusco</td>
+                    <td class="precio">12,00</td>
+                </tr>
+                <tr>
+                    <td>Baron de Ley</td>
+                    <td class="precio">15,00</td>
+                </tr>
+                <tr>
+                    <td>Vino de la Casa</td>
+                    <td class="precio">12,00</td>
+                </tr>
+                <tr>
+                    <td>Vino de la Casa - 1/2 ltr.</td>
+                    <td class="precio">7,00</td>
+                </tr>
+                <tr>
+                    <td>Rioja de la Casa</td>
+                    <td class="precio">15,00</td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+    <section class="vino-section">
+        </section><h2>Refrescos</h2>
+        <table class="vino-table">
+            <thead>
+                <tr>
+                    <th>Bebida</th>
+                    <th class="precio">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Fanta y Coca Cola</td>
+                    <td class="precio">3,00</td>
+                </tr>
+                <tr>
+                    <td>Cerveza</td>
+                    <td class="precio">3,00</td>
+                </tr>
+                <tr>
+                    <td>Café</td>
+                    <td class="precio">1,50</td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+    <section class="piz-section">
+        </section><h2>Pizzas</h2>
+        <table class="vino-table">
+            <thead>
+                <tr>
+                    <th><br>
+</th>
+                    <th class="precio">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Margarita</td>
+                    <td class="precio">8,50€</td>
+                </tr>
+                <tr>
+                    <td>Cuatro Quesos</td>
+                    <td class="precio">13€</td>
+                </tr>
+                <tr>
+                    <td>Barbacoa</td>
+                    <td class="precio">13€</td>
+                </tr>
+                <tr>
+                    <td>Pepperoni</td>
+                    <td class="precio">10€</td>
+                </tr>
+                <tr>
+                    <td>Romana</td>
+                    <td class="precio">10€</td>
+                </tr>
+                <tr>
+                    <td>Serrana</td>
+                    <td class="precio">10€</td>
+                </tr>
+                <tr>
+                    <td>Marisco</td>
+                    <td class="precio">15€</td>
+                </tr>
+                <tr>
+                    <td>Clásica</td>
+                    <td class="precio">10€</td>
+                </tr>
+                <tr>
+                    <td>Pollo</td>
+                    <td class="precio">13€</td>
+                </tr>
+                <tr>
+                    <td>Vegetal</td>
+                    <td class="precio">12,50€</td>
+                </tr>
+                <tr>
+                    <td>Mar y Montaña</td>
+                    <td class="precio">10€</td>
+                </tr>
+                <tr>
+                    <td>Rústica</td>
+                    <td class="precio">13€</td>
+                </tr>
+                <tr>
+                    <td>Hawaii</td>
+                    <td class="precio">12€</td>
+                </tr>
+            
+            
+            </tbody>
+        </table>
+    
+</body></html>
